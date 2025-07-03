@@ -12,7 +12,7 @@ export default function InfoPage() {
       <div className="space-y-6">
         <h1 className="text-3xl font-bold text-primary">Bienvenido a NatureOne</h1>
         <p className="text-muted-foreground text-lg">
-          Somos una empresa dedicada a ofrecer productos 100% orgánicos, promoviendo el bienestar y el cuidado del medio ambiente. Nuestro compromiso es brindarte calidad, salud y confianza en cada producto que ofrecemos.
+          Somos una empresa dedicada a ofrecer productos 100% orgánico, promoviendo el bienestar y el cuidado del medio ambiente. Nuestro compromiso es brindarte calidad, salud y confianza en cada producto que ofrecemos.
         </p>
 
         <div className="space-y-2 text-sm">
