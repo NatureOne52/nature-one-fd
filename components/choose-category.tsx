@@ -36,7 +36,7 @@ const ChooseCategory = () => {
                                 transform: `translateX(-${(currentIndex * (100 / itemsPerView))}%)`
                             }}
                         >
-                            {result.map((category:CategoryType) => (
+                            {Array.isArray(result) && result.map((category: CategoryType) => (
                                 <Link
                                     key={category.id}
                                     href={`/category/${category.slug}`}

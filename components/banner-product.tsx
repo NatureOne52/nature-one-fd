@@ -11,16 +11,22 @@ const BannerProduct = () => {
             <p className="my-2 text-lg">Siente el poder de lo puro</p>
             
             <Link
-                    href="#"
-                    className={cn(
-                        buttonVariants({ variant: "default" }),
-                        "rounded-3xl px-6 py-2"
-                    )}
-                >
-                    Comprar
-                </Link>
+                href="#"
+                className={cn(
+                    buttonVariants({ variant: "default" }),
+                    "rounded-3xl px-6 py-2"
+                )}
+            >
+                Comprar
+            </Link>
         </div>
-<div className="w-full h-[450px] bg-[url('/slider-image.jpg')] bg-center bg-cover bg-no-repeat mt-5" />
+        <div className="w-full h-[450px] mt-5 overflow-hidden">
+            <div
+                className="w-full h-full bg-[url('https://res.cloudinary.com/dge5fkefh/image/upload/v1752288350/pexels-ileana-ramona-nae-12897929-6332250_gment9.jpg')] bg-center bg-cover bg-no-repeat
+                transition-transform duration-1200 delay-250 ease-in-out
+                hover:scale-130 hover:rotate-[5deg]"
+            />
+        </div>
         </>
     );
 };
