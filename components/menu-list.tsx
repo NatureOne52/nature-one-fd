@@ -12,18 +12,19 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 
-function ListItem({
-  title,
-  children,
-  href,
-  ...props
-}: React.ComponentPropsWithoutRef<"li"> & { href: string }) {
+interface ListItemProps extends React.ComponentPropsWithoutRef<"li"> {
+  title: string
+  href: string
+  children: React.ReactNode
+}
+
+function ListItem({ title, children, href, ...props }: ListItemProps) {
   return (
     <li {...props}>
       <NavigationMenuLink asChild>
-        <Link href={href}>
-          <div className="text-sm leading-none font-medium text-foreground">{title}</div>
-          <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
+        <Link href={href} className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+          <div className="text-sm font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
           </p>
         </Link>
@@ -34,25 +35,24 @@ function ListItem({
 
 const MenuList = () => {
   return (
-    <NavigationMenu viewport={false} aria-label="Menú principal">
+    <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
             <Link href="/">Inicio</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
+        
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
             <Link href="/nosotros">Nosotros</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
+        
         <NavigationMenuItem>
           <NavigationMenuTrigger>Categorías</NavigationMenuTrigger>
-          <NavigationMenuContent
-            className="bg-background border border-border shadow-lg z-50"
-            aria-label="Submenú de categorías"
-          >
-            <ul className="grid w-[300px] gap-4">
+          <NavigationMenuContent>
+            <ul className="grid w-[300px] gap-3 p-4">
               <ListItem href="/category/alimentos" title="Alimentos">
                 Lo mejor de la naturaleza en tu mesa
               </ListItem>
@@ -65,6 +65,7 @@ const MenuList = () => {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
+        
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
             <Link href="/contactanos">Contáctanos</Link>
