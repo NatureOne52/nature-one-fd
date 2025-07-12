@@ -1,4 +1,5 @@
-import { Carousel,CarouselContent,CarouselItem, CarouselPrevious, CarouselNext} from "@/components/ui/carousel";
+import Image from 'next/image'
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 
 interface CarouselProductProps {
   images: {
@@ -7,27 +8,32 @@ interface CarouselProductProps {
   }[];
 }
 
+const CarouselProduct = (props: CarouselProductProps) => {
+  const { images } = props;
 
-const CarouselProduct = (props:CarouselProductProps)=> {
-    const {images} = props
-    return(
-        <div className="sm:px-16"> 
-            <Carousel>
-                <CarouselContent>
-                    {images.map((image) =>(
-                        <CarouselItem key={image.id}>
-                            <img src={`${image.url}`}
-                            alt="image product" className="rounded-3xl" />
-                        </CarouselItem>
-                    ))}
-                </CarouselContent>
-                
-                <CarouselPrevious/>
-                <CarouselNext/>
-            </Carousel>
+  return (
+    <div className="sm:px-16">
+      <Carousel>
+        <CarouselContent>
+          {images.map((image) => (
+            <CarouselItem key={image.id}>
+              <Image
+                src={image.url}
+                alt="image product"
+                className="rounded-3xl"
+                width={500}   // ajusta según el tamaño que necesites
+                height={500}  // ajusta según el tamaño que necesites
+                priority={true} // opcional, para cargar rápido si es importante
+              />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
 
-        </div>
-    )
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
+    </div>
+  );
 }
 
 export default CarouselProduct;

@@ -33,32 +33,15 @@ const MenuList = () => {
             aria-label="Submenú de categorías"
           >
             <ul className="grid w-[300px] gap-4">
-              <li>
-                <NavigationMenuLink asChild>
-                  <Link href="/category/alimentos">
-                    <div className="font-medium text-foreground">Alimentos</div>
-                    <div className="text-muted-foreground">
-                      Lo mejor de la naturaleza en tu mesa
-                    </div>
-                  </Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link href="/category/bebidas">
-                    <div className="font-medium text-foreground">Bebidas</div>
-                    <div className="text-muted-foreground">
-                      Refrescante por dentro, vibrante por fuera
-                    </div>
-                  </Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link href="/category/cuidado-personal">
-                    <div className="font-medium text-foreground">Cuidado personal</div>
-                    <div className="text-muted-foreground">
-                      Nutre tu piel, cuida tu bienestar
-                    </div>
-                  </Link>
-                </NavigationMenuLink>
-              </li>
+              <ListItem href="/category/alimentos" title="Alimentos">
+                Lo mejor de la naturaleza en tu mesa
+              </ListItem>
+              <ListItem href="/category/bebidas" title="Bebidas">
+                Refrescante por dentro, vibrante por fuera
+              </ListItem>
+              <ListItem href="/category/cuidado-personal" title="Cuidado personal">
+                Nutre tu piel, cuida tu bienestar
+              </ListItem>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>

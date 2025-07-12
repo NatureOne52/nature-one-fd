@@ -5,6 +5,7 @@ import { ProductType } from "@/types/product";
 import {  Expand, ShoppingCart } from "lucide-react";
 import  Link  from "next/link";
 import { useRouter } from "next/navigation";
+import Image from 'next/image'
 
 type ProductCardProps = {
     product: ProductType;
@@ -27,23 +28,24 @@ const ProductCard = (props: ProductCardProps) =>{
             className="w-full max-w-sm"
             >
                 <CarouselContent>
-                    {product.images.map((image) => (
-                        <CarouselItem key={image.id} className="group">
-                           <img src={`${image.url}`}
-                           alt="Image"
-                           className="rounded-3xl"
-                           /> 
+                {product.images.map((image) => (
+                    <CarouselItem key={image.id} className="group">
+                    <Image
+                        src={image.url}
+                        alt="Image"
+                        className="rounded-3xl"
+                        width={500}    // ajusta según tu diseño
+                        height={500}   // ajusta según tu diseño
+                    />
 
-                        <div className="absolute w-full px-6 transition duration-200 opacity-0 group-hover:opacity-100 bottom-5">
-                            <div className="flex justify-center gap-x-6">
-                                <IconButton onClick={() => router.push(`/product/${product.slug}`)} icon={<Expand size={20} className="text-gray-600"/>}/>
-                                <IconButton onClick={() => console.log("producto")} icon={<ShoppingCart size={20} className="text-gray-600"/>}/>
-  
-                            </div>
+                    <div className="absolute w-full px-6 transition duration-200 opacity-0 group-hover:opacity-100 bottom-5">
+                        <div className="flex justify-center gap-x-6">
+                        <IconButton onClick={() => router.push(`/product/${product.slug}`)} icon={<Expand size={20} className="text-gray-600"/>}/>
+                        <IconButton onClick={() => console.log("producto")} icon={<ShoppingCart size={20} className="text-gray-600"/>}/>
                         </div>
-                        </CarouselItem>       
-
-                    ))}
+                    </div>
+                    </CarouselItem>
+                ))}
                 </CarouselContent>
             </Carousel>
             <p className="text-2xl text-center">{product.productName}</p>
