@@ -24,7 +24,7 @@ const BannerProduct = () => {
             <div
                 className="w-full h-full bg-[url('https://res.cloudinary.com/dge5fkefh/image/upload/v1752288350/pexels-ileana-ramona-nae-12897929-6332250_gment9.jpg')] bg-center bg-cover bg-no-repeat
                 transition-transform duration-1200 delay-250 ease-in-out
-                hover:scale-130 hover:rotate-[5deg]"
+                hover:scale-115 hover:rotate-[5deg]"
             />
         </div>
         </>

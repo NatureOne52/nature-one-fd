@@ -32,7 +32,7 @@ const HeroSection = () => {
 
 	return (
 		<section
-			className="relative w-full h-[19200px] sm:h-[720px] overflow-hidden"
+			className="relative w-full h-[60vh] sm:h-[80vh] lg:h-[720px] overflow-hidden"
 			aria-label="Hero principal"
 		>
 			{heroSlides.map((slide, idx) => (
@@ -55,10 +55,10 @@ const HeroSection = () => {
 						}}
 					>
 						<div className="w-full h-full flex flex-col justify-center items-center bg-black/40 group-hover:bg-black/60 transition-all duration-500">
-							<h1 className="text-3xl sm:text-5xl font-bold text-white drop-shadow-lg mb-2 text-center">
+							<h1 className="text-3xl sm:text-5xl font-bold text-white drop-shadow-lg mb-2 text-center px-4">
 								{slide.title}
 							</h1>
-							<h2 className="text-lg sm:text-2xl text-white/80 drop-shadow text-center">
+							<h2 className="text-lg sm:text-2xl text-white/80 drop-shadow text-center px-4">
 								{slide.subtitle}
 							</h2>
 						</div>
